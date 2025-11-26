@@ -42,6 +42,14 @@ export default function Header() {
               </NavLink>
             </li>
           ))}
+          <li>
+            <button
+              onClick={() => console.log("budget mode")}
+              className="button button--primary px-4 py-3"
+            >
+              Budget mode
+            </button>
+          </li>
         </ol>
       </nav>
     </header>

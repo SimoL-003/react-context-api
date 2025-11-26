@@ -19,7 +19,7 @@
 
 @layer components {
   .button {
-    @apply inline-block px-6 py-4 rounded-md transition-all duration-150 font-semibold text-base;
+    @apply inline-block px-6 py-4 rounded-md transition-all duration-150 font-semibold text-base cursor-pointer;
   }
 
   .button--primary {
