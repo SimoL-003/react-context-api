@@ -1,4 +1,4 @@
-## Context API in React
+# Context API in React
 
 Si userà un contesto per gestire una modalità budget, che permette all’utente di visualizzare solo i prodotti più economici.
 
