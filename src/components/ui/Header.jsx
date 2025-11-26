@@ -1,7 +1,5 @@
-import Home from "../../pages/Home";
-import AboutUs from "../../pages/AboutUs";
-import Products from "../../pages/Products";
 import { Link, NavLink } from "react-router-dom";
+import { useBudget } from "../../contexts/BudgetContext";
 
 export default function Header() {
   const nav = [
@@ -18,6 +16,8 @@ export default function Header() {
       path: "/products",
     },
   ];
+
+  const { budgetMode, setBudgetMode } = useBudget();
 
   return (
     <header className="h-20 bg-white flex items-center justify-center">
@@ -42,12 +42,14 @@ export default function Header() {
               </NavLink>
             </li>
           ))}
+
+          {/* Budget mode btn */}
           <li>
             <button
-              onClick={() => console.log("budget mode")}
-              className="button button--primary px-4 py-3"
+              onClick={() => setBudgetMode((prev) => !prev)}
+              className="button button--primary px-4 py-3 text-sm"
             >
-              Budget mode
+              {budgetMode ? "Disattiva" : "Attiva"} budget mode
             </button>
           </li>
         </ol>

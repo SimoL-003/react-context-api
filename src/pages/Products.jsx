@@ -2,15 +2,27 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductsGridLoader from "../components/loaders/ProductsGridLoader";
+import { useBudget } from "../contexts/BudgetContext";
 
 export default function Products() {
   const [productsList, setProductsList] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(productsList);
+  const { budgetMode } = useBudget();
 
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => setProductsList(res.data));
   }, []);
+
+  useEffect(() => {
+    setFilteredProducts(productsList);
+    if (budgetMode) {
+      setFilteredProducts((prev) =>
+        prev.filter((curProd) => curProd.price <= 30)
+      );
+    }
+  }, [budgetMode, productsList]);
 
   return (
     <section className="bg-slate-100 py-10">
@@ -23,8 +35,8 @@ export default function Products() {
         {/* PRODUCTS CONTAINER */}
         <div>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-slate-500">
-            {productsList.length !== 0 ? (
-              productsList.map((product) => (
+            {filteredProducts.length !== 0 ? (
+              filteredProducts.map((product) => (
                 // Product card
                 <li
                   key={product.id}

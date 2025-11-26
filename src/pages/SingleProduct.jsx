@@ -44,7 +44,7 @@ export default function SingleProduct() {
           {/* PRODUCT DETAILS */}
           <div className="flex flex-col md:flex-row items-center">
             {/* Image */}
-            <div className="w-2/5 px-0 py-4 md:p-8">
+            <div className="w-2/5 px-0 py-4 md:p-8 ">
               <img src={singleProduct.image} alt={singleProduct.title} />
             </div>
 
