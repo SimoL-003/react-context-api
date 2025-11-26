@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    @apply focus-visible:outline-0;
+  }
+  h1 {
+    @apply text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-slate-600 text-lg mt-2;
+  }
+
+  h3 {
+    @apply text-slate-900 font-medium;
+  }
+}
+
+@layer components {
+  .button {
+    @apply inline-block px-6 py-4 rounded-md transition-all duration-150 font-semibold text-base;
+  }
+
+  .button--primary {
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white focus-visible:ring-2 focus-visible:ring-indigo-300;
+  }
+
+  .button--secondary {
+    @apply bg-white text-slate-700 border-2 border-slate-300 hover:bg-slate-100 hover:text-slate-900 px-3 py-2 aria-disabled:bg-slate-100 aria-disabled:text-slate-400 aria-disabled:border-slate-200 aria-disabled:cursor-not-allowed;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply max-w-6xl w-[85%] mx-auto;
+  }
+
+  header .active {
+    color: var(--color-indigo-500) !important;
+  }
+}
+
+.home__hero {
+  background-image: url(./assets/hero-bg.jpg);
+}
