@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 import { useBudget } from "../../contexts/BudgetContext";
 import ProductsGridLoader from "../loaders/ProductsGridLoader";
-import { Link } from "react-router-dom";
+import ProductCard from "../molecules/ProductCard";
 
 export default function ProductsGrid() {
   const { productsList } = useProducts();
@@ -26,26 +26,7 @@ export default function ProductsGrid() {
           filteredProducts.length !== 0 ? (
             filteredProducts.map((product) => (
               // Product card
-              <li
-                key={product.id}
-                className="rounded-lg bg-white shadow-lg hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
-              >
-                <Link to={`/products/${product.id}`} className="block p-8">
-                  {/* Card img */}
-                  <div className="flex justify-center">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="h-[200px] aspect-square object-contain"
-                    />
-                  </div>
-
-                  {/* Card text */}
-                  <div className="mt-4">
-                    <h3 className="py-1">{product.title}</h3>
-                  </div>
-                </Link>
-              </li>
+              <ProductCard key={product.id} product={product} />
             ))
           ) : (
             <div>
