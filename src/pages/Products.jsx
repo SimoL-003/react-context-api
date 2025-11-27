@@ -27,12 +27,13 @@ export default function Products() {
   }, []);
 
   useEffect(() => {
-    setFilteredProducts(productsList);
+    let filteredProd = productsList;
     if (budgetMode) {
-      setFilteredProducts((prev) =>
-        prev.filter((curProd) => curProd.price <= maxBudget)
+      filteredProd = filteredProd.filter(
+        (curProd) => curProd.price <= maxBudget
       );
     }
+    setFilteredProducts(filteredProd);
   }, [budgetMode, productsList, maxBudget]);
 
   return (
