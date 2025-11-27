@@ -1,4 +1,4 @@
-import BudgetFilter from "../components/forms/BudgetFilter";
+import BudgetFilter from "../components/organisms/BudgetFilter";
 import { useProducts } from "../contexts/ProductsContext";
 import ProductsGrid from "../components/organisms/ProductsGrid";
 

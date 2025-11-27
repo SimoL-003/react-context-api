@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useProducts } from "../../contexts/ProductsContext";
 import { useBudget } from "../../contexts/BudgetContext";
-import ProductsGridLoader from "../loaders/ProductsGridLoader";
+import ProductsGridLoader from "../ui/loaders/ProductsGridLoader";
 import ProductCard from "../molecules/ProductCard";
 
 export default function ProductsGrid() {

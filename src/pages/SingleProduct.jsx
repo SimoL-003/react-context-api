@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import SingleProductLoader from "../components/loaders/SingleProductLoader";
+import SingleProductLoader from "../components/ui/loaders/SingleProductLoader";
 import { useProducts } from "../contexts/ProductsContext";
 
 export default function SingleProduct() {
