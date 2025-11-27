@@ -6,21 +6,21 @@ export default function BudgetFilter({ maxPrice }) {
 
   const { budgetMode, setBudgetMode, maxBudget, setMaxBudget } = useBudget();
   return (
-    <section className="my-6 flex">
+    <section className="my-6 flex flex-col md:flex-row">
       {/* Budget mode button */}
       <button
         onClick={() => {
           setBudgetMode((prev) => !prev);
           setMaxBudget(maxPrice);
         }}
-        className="button button--primary px-4 py-3 text-sm mr-8"
+        className="button button--primary px-4 py-3 text-sm mr-8 w-fit"
       >
         {budgetMode ? "Turn off" : "Turn on"} budget mode
       </button>
 
       {/* Input range */}
       {budgetMode && (
-        <div className="flex items-center">
+        <div className="flex flex-col md:flex-row md:items-center">
           <label className="text-lg font-medium">Set a budget</label>
           <input
             id="budget"
