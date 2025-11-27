@@ -42,16 +42,6 @@ export default function Header() {
               </NavLink>
             </li>
           ))}
-
-          {/* Budget mode btn */}
-          {/* <li>
-            <button
-              onClick={() => setBudgetMode((prev) => !prev)}
-              className="button button--primary px-4 py-3 text-sm"
-            >
-              {budgetMode ? "Disattiva" : "Attiva"} budget mode
-            </button>
-          </li> */}
         </ol>
       </nav>
     </header>

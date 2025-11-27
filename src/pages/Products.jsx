@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductsGridLoader from "../components/loaders/ProductsGridLoader";
@@ -7,27 +6,9 @@ import BudgetFilter from "../components/forms/BudgetFilter";
 import { useProducts } from "../contexts/ProductsContext";
 
 export default function Products() {
-  // const [productsList, setProductsList] = useState([]);
   const { productsList, maxPrice } = useProducts();
   const [filteredProducts, setFilteredProducts] = useState(productsList);
   const { budgetMode, maxBudget } = useBudget();
-
-  // const [maxPrice, setMaxPrice] = useState(null);
-
-  // useEffect(() => {
-  //   axios.get("https://fakestoreapi.com/products").then((res) => {
-  //     const allProducts = res.data;
-  //     setProductsList(allProducts);
-
-  //     let maxP = 0;
-  //     for (let i = 0; i < allProducts.length; i++) {
-  //       if (allProducts[i].price > maxP) {
-  //         maxP = allProducts[i].price;
-  //       }
-  //     }
-  //     setMaxPrice(maxP);
-  //   });
-  // }, []);
 
   useEffect(() => {
     let filteredProd = productsList;

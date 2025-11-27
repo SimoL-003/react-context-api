@@ -8,7 +8,6 @@ export default function SingleProduct() {
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState({});
   const [loading, setLoading] = useState(true);
-  // const [productsList, setProductsList] = useState([]);
   const { productsList } = useProducts();
 
   useEffect(() => {
@@ -17,12 +16,6 @@ export default function SingleProduct() {
       setLoading(false);
     });
   }, [id]);
-
-  // useEffect(() => {
-  //   axios.get("https://fakestoreapi.com/products").then((res) => {
-  //     setProductsList(res.data);
-  //   });
-  // }, []);
 
   const firstId = productsList[0]?.id;
   const lastId = productsList[productsList.length - 1]?.id;
