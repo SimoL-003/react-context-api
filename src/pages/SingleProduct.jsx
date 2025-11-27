@@ -2,12 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import SingleProductLoader from "../components/loaders/SingleProductLoader";
+import { useProducts } from "../contexts/ProductsContext";
 
 export default function SingleProduct() {
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState({});
   const [loading, setLoading] = useState(true);
-  const [productsList, setProductsList] = useState([]);
+  // const [productsList, setProductsList] = useState([]);
+  const { productsList } = useProducts();
 
   useEffect(() => {
     axios.get(`https://fakestoreapi.com/products/${id}`).then((res) => {
@@ -16,11 +18,11 @@ export default function SingleProduct() {
     });
   }, [id]);
 
-  useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((res) => {
-      setProductsList(res.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("https://fakestoreapi.com/products").then((res) => {
+  //     setProductsList(res.data);
+  //   });
+  // }, []);
 
   const firstId = productsList[0]?.id;
   const lastId = productsList[productsList.length - 1]?.id;
