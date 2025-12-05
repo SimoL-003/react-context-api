@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { useBudget } from "../../contexts/BudgetContext";
 
 export default function BudgetFilter({ maxPrice }) {
-  const [budget, setBudget] = useState(0);
-
   const { budgetMode, setBudgetMode, maxBudget, setMaxBudget } = useBudget();
+
   return (
     <section className="my-6 flex flex-col md:flex-row">
       {/* Budget mode button */}

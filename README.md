@@ -1,37 +1,63 @@
-# Context API in React
+# E-commerce React App
 
-Si userà un contesto per gestire una modalità budget, che permette all’utente di visualizzare solo i prodotti più economici.
+## Descrizione
 
-## Consegna
+Applicazione e-commerce sviluppata in React che permette di visualizzare una lista di prodotti, filtrare i risultati tramite un sistema di budget dinamico e visualizzare la scheda dettagliata di ogni prodotto. L'interfaccia utilizza React Router per la navigazione tra le pagine e Context API per la gestione dello stato globale.
 
-### MILESTONE 1
+L'app scarica i prodotti da un'API esterna (FakeStoreAPI) e li gestisce localmente tramite contesti dedicati.
 
-Creare un nuovo context chiamato BudgetContext
+## Funzionalità principali
 
-- Deve contenere uno stato budgetMode di tipo booleano (true/false)
-- Deve fornire anche la funzione per modificarlo (setBudgetMode)
-- Wrappare l’intera applicazione con il BudgetProvider
+- Visualizzazione della lista dei prodotti.
+- Filtraggio dei prodotti tramite budget massimo.
+- Visualizzazione della pagina di dettaglio del singolo prodotto.
+- Navigazione tra i prodotti precedente e successivo.
+- Layout condiviso tra le pagine con Header e Footer.
+- Gestione dello stato con Context API.
+- Routing avanzato con React Router:
+  - Home
+  - About Us
+  - Products
+  - Single Product
+  - Pagina 404 personalizzata
 
-### MILESTONE 2
+## Tecnologie utilizzate
 
-Creare un componente Navbar.jsx
+- **React** — struttura dell’applicazione e gestione dello stato
+- **React Router DOM** - navigazione tra le pagine
+- **Context API** - creazione di un contesto globale
+- **Axios** — per effettuare le chiamate HTTP
+- **Tailwind CSS** — stile e layout responsive
+- **JavaScript** — logica generale
 
-- Inserirlo in App.jsx (oppure nel componente di layout)
-- All’interno della Navbar aggiungere un bottone “Modalità Budget” che attiva/disattiva budgetMode con un click
-- Il bottone deve cambiare etichetta in base allo stato (Attiva Modalità Budget / Disattiva Modalità Budget)
+## Logica principale
 
-### MILESTONE 3
+### ProductsContext
 
-Modificare la pagina dei prodotti:
+- Scarica tutti i prodotti dall'API.
+- Calcola automaticamente il prezzo massimo tra tutti i prodotti.
+- Rende disponibili lista prodotti e prezzo massimo a tutta l'app.
 
-- Recuperare il valore budgetMode usando il context
-- Se `budgetMode === true`, mostrare solo i prodotti con price <= 30
-- Altrimenti, mostrare tutti i prodotti normalmente
+### BudgetContext
 
-## BONUS
+- Gestisce la modalità budget (attiva/disattiva).
+- Memorizza il budget massimo impostato dall'utente.
 
-Trasformare la modalità budget in un vero e proprio filtro:
+### Single Product Page
 
-- Trasformare il booleano budgetMode in un valore numerico maxPrice (es.30, 50ecc). Il valore di partenza deve essere null .
-- Nel componente navbar al posto del bottone inserire un campo input di tipo number. Questo campo deve essere legato al valore maxPrice del context
-- Nella pagina prodotti, verranno mostrati soltanto i prodotti con price <= maxPrice (Se max price è null o comunque non è settato, devono essere visualizzati tutti i prodotti).
+- Scarica il singolo prodotto tramite ID dalla URL.
+- Mostra loader durante il fetch.
+- Fornisce navigazione al prodotto precedente e successivo tramite ID.
+- Disabilita i pulsanti quando si raggiunge il primo o l'ultimo prodotto.
+
+## Routing
+
+- `/` — Homepage
+- `/about-us` — Pagina informativa
+- `/products` — Lista prodotti
+- `/products/:id` — Scheda prodotto
+- `*` — Pagina 404
+
+## Risultato
+
+[https://react-fake-store-sl.netlify.app/](https://react-fake-store-sl.netlify.app/)
